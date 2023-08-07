@@ -1,9 +1,13 @@
+from warnings import filterwarnings
+
 from prettymapp.geo import get_aoi
 from prettymapp.osm import get_osm_geometries
-from warnings import filterwarnings
 from prettymapp.plotting import Plot
 from prettymapp.settings import STYLES
+
 filterwarnings(action='ignore')
+
+
 def desenha_mapa(address, radius=1000, estilo='Peach', retangular=False):
     aoi = get_aoi(address=address, radius=radius, rectangular=retangular)
     df = get_osm_geometries(aoi=aoi)
